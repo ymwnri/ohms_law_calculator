@@ -17,6 +17,7 @@ def calculate_voltage(current, resistance):
     Returns:
         float: The voltage in Volts.
     """
+    # Formula to calculate Voltage using Ohm's Law
     voltage = current * resistance
     return voltage
 
@@ -30,6 +31,7 @@ def calculate_current(voltage, resistance):
     Returns:
         float: The current in Amperes.
     """
+    # Formula to calculate Current using Ohm's Law
     current = voltage / resistance
     return current
 
@@ -43,6 +45,7 @@ def calculate_resistance(voltage, current):
     Returns:
         float: The resistance in Ohms.
     """
+    # Formula to calculate Resistance using Ohm's Law
     resistance = voltage / current
     return resistance
 
@@ -61,15 +64,19 @@ if input_type == 1:
 elif input_type == 2:
     voltage = float(input("Enter Voltage (V): "))
     resistance = float(input("Enter Resistance (Ω): "))
+
+    # Handle division by zero error
     try:
         current = calculate_current(voltage, resistance)
         print(f"The Current is {current} Amperes")
     except ZeroDivisionError:
         print("Cannot divide by zero")
-
+        
 elif input_type == 3:
     voltage = float(input("Enter Voltage (V): "))
     current = float(input("Enter Current (A): "))
+
+    # Handle division by zero error
     try:
         resistance = calculate_resistance(voltage, current)
         print(f"The Resistance is {resistance} Ohms")
